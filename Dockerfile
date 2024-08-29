@@ -7,9 +7,10 @@ ENV DB_USER_PASSWORD=IMISuserP@s
 ENV DB_NAME=IMIS
 ENV DB_USER=IMISUser
 ENV INIT_MODE=empty
-RUN mkdir -p /app
-COPY script/* /app/
-COPY sql /app/sql
-WORKDIR /app
+
+RUN mkdir -p /home/mssql/app
+COPY script/* /home/mssql/app/
+COPY sql /home/mssql/app/sql
+WORKDIR /home/mssql/app
 RUN chmod a+x /app/*.sh
 CMD /bin/bash ./entrypoint.sh
