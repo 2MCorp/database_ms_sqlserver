@@ -1,4 +1,4 @@
-FROM  mcr.microsoft.com/mssql/server:2019-latest
+FROM  mcr.microsoft.com/mssql/server:2022-latest
 ARG ACCEPT_EULA=Y
 ENV ACCEPT_EULA=N
 ARG SA_PASSWORD=IMISuserP@s
@@ -13,5 +13,4 @@ COPY script/* /app/
 COPY sql /app/sql
 WORKDIR /app
 RUN chmod a+x /app/*.sh
-USER mssql
 CMD /bin/bash ./entrypoint.sh
